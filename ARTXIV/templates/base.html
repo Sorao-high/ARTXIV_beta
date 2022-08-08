@@ -1,0 +1,33 @@
+{% load static %}
+{% load django_bootstrap5 %}
+<html>
+    <head>
+        <meta charset="us-ascii">
+        <title>ARTXIV</title>
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+        <link rel="stylesheet" href="{% static 'snippets/css/style.css' %}">
+        {% block extraheader %}{% endblock %}
+        <link rel="stylesheet" href="{% static 'artxivs/css/style.css' %}">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand flex-md-row navbar-dark bg-dark">
+            <div class="container justify-content-between">
+                <a href="/" class="navbar-brand">ARTXIV</a>
+                <ul class="navbar-nav mr-md-2">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">logout</a></li>
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'signup' %}">signup</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+        <main>
+            <div class="container">
+                {% block main %}{% endblock %}
+            </div>
+        </main>
+    </body>
+</html>

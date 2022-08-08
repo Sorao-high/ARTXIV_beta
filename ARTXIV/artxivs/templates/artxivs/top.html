@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{%block main %}
+<div class="welcome">
+    <h1>ARTXIV</h1>
+    <p>ARTXIV is a free distribution service and an open-access archive of artist's statements for the art world.</p>
+    <p>Materials on this site are not peer-reviewed by ARTXIV. </p>
+    <a class="btn btn-primary" href="{% url 'artxiv_new' %}">Resistration Artist's Statement</a>
+</div>
+
+    {% if artxivs %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Contributor</th>
+                <th>Artist name</th>
+                <th>Posted Date</th>
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for artxiv in artxivs %}
+            <tr>
+                <th>{{ artxiv.contributor_name }}</th>
+                <th>{{ artxiv.artist_name }}</th>
+                <th>{{ artxiv.posted_at }}</th>
+                <th><a href="{% url 'artxiv_detail' artxiv.id %}">{{ artxiv.title }}</a></th>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        {% else %}
+        <p>No posted yet</p>
+        {% endif %}
+{% endblock %}
