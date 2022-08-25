@@ -7,4 +7,4 @@ from artxivs.models import Artxiv
 class ArtxivForm(forms.ModelForm):
     class Meta:
         model = Artxiv
-        fields = ('title', 'artist_name', 'artist_statement', 'artist_works',　'abstract', 'exhibition_histry')
+        fields = ('title', 'artist_name', 'artist_statement', 'artist_works', 'abstract', 'exhibition_histry')
