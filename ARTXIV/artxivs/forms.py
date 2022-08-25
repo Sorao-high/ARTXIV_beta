@@ -1,5 +1,5 @@
 from dataclasses import field
-from socket import fromshare
+#from socket import fromshare iosだと必要ないかも
 from django import forms
 
 from artxivs.models import Artxiv
