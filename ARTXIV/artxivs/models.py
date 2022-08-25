@@ -4,7 +4,7 @@ from django.conf import settings
 from django import forms
 
 class Artxiv(models.Model):
-    artist_statement = models.ImageField(upload_to='uploads/%Y/%m/%d/',)
+    artist_statement = models.FileField(upload_to='uploads/%Y/%m/%d/',)
     title = models.CharField('Title', max_length=100)    
     artist_name = models.CharField('Artist name', max_length=20) 
     contributor_name = models.CharField('Contributor name', max_length=20)
