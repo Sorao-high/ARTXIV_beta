@@ -1,9 +1,7 @@
-<html>
-<head>
-    <meta charset="us-ascii">
-    <title>ARTXIV</title> 
-</head>
-<body>
+{% extends "base.html" %}
+
+{%block main %}
+
 <div>
     <h2>{{ artxiv.title }}</h2>
     <p><h3>Contributor : {{ artxiv.contributor_name }}</h3></p>
@@ -14,5 +12,5 @@
     <p>{{ artxiv.exhibition_histry }}</p>
     <p><img src="{{artxiv.artist_statement.url}}" width="120" height="100"></p>
 </div>
-</body>
-</html>
+
+{% endblock %}
