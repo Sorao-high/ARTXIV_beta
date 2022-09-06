@@ -15,6 +15,10 @@
             <div class="container justify-content-between">
                 <a href="/" class="navbar-brand">ARTXIV</a>
                 <ul class="navbar-nav mr-md-2">
+                    <form action="" method="get">
+                        <input name="query" value="{{ request.GET.query }}" type="text" placeholder=" Input keywords..">
+                        <button type="submit">Serch</button>
+                    </form>
                     {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">logout</a></li>
                     {% else %}
