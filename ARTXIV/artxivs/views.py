@@ -5,10 +5,21 @@ from artxivs.forms import ArtxivForm
 
 from django.http import HttpResponse
 
-def top(request):
-    artxivs = Artxiv.objects.all()
-    context = {"artxivs": artxivs}
-    return render(request, "artxivs/top.html", context)
+class top(ListView):
+     template_name = 'artxivs/top.html'
+     context_object_name = 'artxivs'
+     model = Artxiv
+
+     def get_queryset(self):
+        q_word = self.request.GET.get('query')
+ 
+        if q_word:
+            artxivs = Artxiv.objects.filter(
+                Q(title__icontains=q_word) | Q(artist_name__icontains=q_word)| Q(abstract__icontains=q_word))
+        else:
+            artxivs = Artxiv.objects.all()
+            
+        return artxivs
 
 @login_required
 def artxiv_new(request):
