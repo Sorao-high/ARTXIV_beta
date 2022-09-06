@@ -20,7 +20,7 @@ from django.contrib.staticfiles.urls import static, staticfiles_urlpatterns
 from artxivs.views import top
 
 urlpatterns = [
-    path('', top, name='top'),
+    path('', top.as_view(), name='top'),
     path('artxivs/', include('artxivs.urls')),
     path('admin/', admin.site.urls),
     path("accounts/", include("accounts.urls")),
