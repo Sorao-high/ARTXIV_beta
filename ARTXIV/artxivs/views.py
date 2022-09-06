@@ -3,6 +3,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from artxivs.models import Artxiv
 from artxivs.forms import ArtxivForm
 
+from django.db.models import Q 
+from django.views.generic import ListView 
+
 from django.http import HttpResponse
 
 class top(ListView):
